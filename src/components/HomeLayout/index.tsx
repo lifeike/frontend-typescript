@@ -1,7 +1,11 @@
 import React, { useState, useRef, useEffect, memo } from "react"
 import AppBar from "./AppBar"
 
-const HomeLayout = (props: {}) => {
+type ContainerProps = {
+  children: React.ReactNode
+}
+
+const HomeLayout = (props: ContainerProps) => {
   return (
     <>
       <AppBar />
