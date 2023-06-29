@@ -1,10 +1,10 @@
-import { useState } from "react"
+import React, { useState, useRef, useEffect, memo } from "react"
 
-function App() {
+const App = (props: {}) => {
   return (
-    <>
-      <div>hello wrodl</div>
-    </>
+    <div>
+      <h2>App</h2>
+    </div>
   )
 }
 
