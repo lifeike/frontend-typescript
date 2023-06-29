@@ -1,4 +1,5 @@
 import * as React from "react"
+import { ContainerProps } from "@/types/common" // children prop typr
 import Drawer from "@mui/material/Drawer"
 import CssBaseline from "@mui/material/CssBaseline"
 import List from "@mui/material/List"
@@ -24,9 +25,6 @@ import NotificationsIcon from "@mui/icons-material/Notifications"
 import MoreIcon from "@mui/icons-material/MoreVert"
 
 const drawerWidth = 240
-type ContainerProps = {
-  children: React.ReactNode // children prop typr
-}
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
