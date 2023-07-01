@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, memo } from "react"
 import { Routes, Route, Link, useNavigate, useLocation, Navigate, Outlet } from "react-router-dom"
 import * as session from "@/utils/session"
 import { ContainerProps } from "./types/common"
+import ViewAllMovies from "@/pages/movie/ViewAllMovies"
 
 function RequireAuth(props: ContainerProps) {
   const location = useLocation()
