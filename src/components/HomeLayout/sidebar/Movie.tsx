@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import ListItemButton from "@mui/material/ListItemButton"
 import ListItemIcon from "@mui/material/ListItemIcon"
 import ListItemText from "@mui/material/ListItemText"
-import TaskIcon from "@mui/icons-material/Task"
+import LocalMoviesIcon from "@mui/icons-material/LocalMovies"
 
 const Moive = () => {
   return (
@@ -10,7 +10,7 @@ const Moive = () => {
       <div>
         <ListItemButton>
           <ListItemIcon>
-            <TaskIcon />
+            <LocalMoviesIcon />
           </ListItemIcon>
           <ListItemText primary="Movies" />
         </ListItemButton>
