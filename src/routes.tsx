@@ -14,16 +14,17 @@ import Blog from "@/pages/blog"
 import Pdf from "@/pages/pdf"
 import GoGame from "@/pages/goGame"
 import DevLift from "./pages/devlift"
+import { ContainerProps } from "./types/common"
 
-function RequireAuth({ children }) {
+function RequireAuth(props: ContainerProps) {
   const location = useLocation()
   if (!session.isAuthenticated()) {
     return <Navigate to="/" state={{ from: location }} replace />
   }
-  return children
+  return props.children
 }
 
-const RouteTable = (props) => {
+const RouteTable = () => {
   return (
     <Routes>
       <Route path="/" element={<DevLift />} />
