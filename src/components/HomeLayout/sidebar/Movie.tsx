@@ -4,10 +4,10 @@ import ListItemIcon from "@mui/material/ListItemIcon"
 import ListItemText from "@mui/material/ListItemText"
 import LocalMoviesIcon from "@mui/icons-material/LocalMovies"
 
-const Moive = () => {
+const ViewAllMovies = () => {
   return (
     <Link to="/movies">
-      <div>
+      <div className="bg-balck">
         <ListItemButton>
           <ListItemIcon>
             <LocalMoviesIcon />
@@ -19,4 +19,4 @@ const Moive = () => {
   )
 }
 
-export default Moive
+export default ViewAllMovies

@@ -6,7 +6,7 @@ import ViewAllMovies from "@/pages/movie/ViewAllMovies"
 
 function RequireAuth(props: ContainerProps) {
   const location = useLocation()
-  // if (!session.isAuthenticated()) <Navigate to="/" state={{ from: location }} replace />
+  if (!session.isAuthenticated()) <Navigate to="/" state={{ from: location }} replace />
   return props.children
 }
 
