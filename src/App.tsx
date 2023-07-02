@@ -1,9 +1,8 @@
-import React, { useState, useRef, useEffect, memo } from "react"
 import HomeLayout from "./components/HomeLayout"
 import { BrowserRouter } from "react-router-dom"
 import RouteTable from "@/routes"
 
-const App = (props: {}) => {
+const App = () => {
   return (
     <BrowserRouter>
       <HomeLayout>
