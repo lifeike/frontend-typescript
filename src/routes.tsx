@@ -6,9 +6,7 @@ import ViewAllMovies from "@/pages/movie/ViewAllMovies"
 
 function RequireAuth(props: ContainerProps) {
   const location = useLocation()
-  if (!session.isAuthenticated()) {
-    return <Navigate to="/" state={{ from: location }} replace />
-  }
+  // if (!session.isAuthenticated()) <Navigate to="/" state={{ from: location }} replace />
   return props.children
 }
 
@@ -18,7 +16,7 @@ const RouteTable = () => {
       {/* <Route path="/" element={<DevLift />} />
       <Route path="/sign-up" element={<SignUp />} /> */}
       <Route
-        path="/moives"
+        path="/movies"
         element={
           <RequireAuth>
             <ViewAllMovies />
