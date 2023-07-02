@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect, memo } from "react"
 import HomeLayout from "./components/HomeLayout"
 import { BrowserRouter } from "react-router-dom"
+import RouteTable from "@/routes"
 
 const App = (props: {}) => {
   return (
     <BrowserRouter>
       <HomeLayout>
-        <h2 className="text-red-800">App</h2>
+        <RouteTable />
       </HomeLayout>
     </BrowserRouter>
   )
