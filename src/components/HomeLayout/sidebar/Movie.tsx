@@ -7,14 +7,12 @@ import LocalMoviesIcon from "@mui/icons-material/LocalMovies"
 const ViewAllMovies = () => {
   return (
     <Link to="/movies">
-      <div className="bg-balck">
-        <ListItemButton>
-          <ListItemIcon>
-            <LocalMoviesIcon />
-          </ListItemIcon>
-          <ListItemText primary="Movies" />
-        </ListItemButton>
-      </div>
+      <ListItemButton>
+        <ListItemIcon>
+          <LocalMoviesIcon />
+        </ListItemIcon>
+        <ListItemText primary="Movies" />
+      </ListItemButton>
     </Link>
   )
 }
