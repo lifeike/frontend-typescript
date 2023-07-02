@@ -13,8 +13,8 @@ function RequireAuth(props: ContainerProps) {
 const RouteTable = () => {
   return (
     <Routes>
-      {/* <Route path="/" element={<DevLift />} />
-      <Route path="/sign-up" element={<SignUp />} /> */}
+      <Route path="/" element={<ViewAllMovies />} />
+      {/* <Route path="/sign-up" element={<SignUp />} /> */}
       <Route
         path="/movies"
         element={

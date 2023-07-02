@@ -1,6 +1,7 @@
 import * as React from "react"
 import { ContainerProps } from "@/types/common" // children prop typr
 import Drawer from "@mui/material/Drawer"
+import { Link } from "react-router-dom"
 import CssBaseline from "@mui/material/CssBaseline"
 import { styled, alpha } from "@mui/material/styles"
 import AppBar from "@mui/material/AppBar"
@@ -93,9 +94,11 @@ export default function ClippedDrawer(props: ContainerProps) {
           <IconButton size="large" edge="start" color="inherit" aria-label="open drawer" sx={{ mr: 2 }}>
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div" sx={{ display: { xs: "none", sm: "block" } }}>
-            MUI
-          </Typography>
+          <Link to="/">
+            <Typography variant="h6" noWrap component="div" sx={{ display: { xs: "none", sm: "block" } }}>
+              Typescript
+            </Typography>
+          </Link>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
