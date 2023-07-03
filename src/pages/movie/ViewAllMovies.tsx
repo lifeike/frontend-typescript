@@ -8,7 +8,7 @@ const ViewAllMovies = () => {
   const count = useAppSelector((state) => state.counter.value)
   const dispatch = useAppDispatch()
   const loadData = async () => {
-    const result = dispatch(actions.getMovies())
+    const result = await dispatch(actions.getMovies())
     console.log(result)
   }
 
