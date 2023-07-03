@@ -1,4 +1,4 @@
-export const getSession = () => {
+export const getSession = (): { access_token: string } | undefined => {
   let sessionJson = localStorage.getItem("session")
   if (sessionJson) {
     try {

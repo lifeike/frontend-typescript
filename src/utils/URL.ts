@@ -1,5 +1,5 @@
 //backend api
-export const baseURL = import.meta.env.MODE == "development" ? "http://localhost:8080" : "https://nap5l3bq7e.execute-api.us-east-1.amazonaws.com/"
+export const baseURL = import.meta.env.MODE == "development" ? "https://catfact.ninja/fact" : "https://nap5l3bq7e.execute-api.us-east-1.amazonaws.com/"
 
 //configure setupProxy.js
 //other api 1

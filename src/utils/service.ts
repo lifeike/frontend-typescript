@@ -1,4 +1,11 @@
 import axios from "axios"
+import {
+  AxiosError,
+  AxiosInstance,
+  // AxiosRequestConfig, // Change to InternalAxiosRequestConfig
+  InternalAxiosRequestConfig,
+  AxiosResponse,
+} from "axios"
 import jwt_decode from "jwt-decode"
 import moment from "moment"
 
@@ -15,10 +22,10 @@ const service = axios.create({
 })
 // request interceptor
 service.interceptors.request.use(
-  async (config) => {
+  async (config: InternalAxiosRequestConfig) => {
     let expired = null
     if (session.isAuthenticated()) {
-      let headers = { Authorization: `${session.getSession().access_token}` }
+      let headers = { Authorization: `${session.getSession()?.access_token}` }
       config.headers = { ...headers, ...config.headers }
       let exp_time = jwt_decode(session.getSession().access_token).exp
       let now = Math.floor(Date.now() / 1000)
