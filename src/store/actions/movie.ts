@@ -1,12 +1,16 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import * as api from "@/api/movie"
-import * as loading from "../reducers/loading"
+import to from "await-to-js"
+import { AppDispatch } from ".."
 
-// First, create the thunk
-export const getMovies = createAsyncThunk("", async (data, thunkAPI) => {
-  thunkAPI.dispatch(loading.turnOn())
-  const response = await api.getMovie(data)
-  console.log(response)
-  thunkAPI.dispatch(loading.turnOff())
-  return response
-})
+export function getMovies(data: any) {
+  return async (dispatch: AppDispatch, {}) => {
+    dispatch({ type: "loading/turnOn" })
+    let [err, response] = await to(api.getMovie(data))
+    if (err) {
+      dispatch({ type: "loading/turnOff" })
+      return Promise.reject(err.message)
+    }
+    dispatch({ type: "loading/turnOff" })
+    return Promise.resolve(response)
+  }
+}

@@ -5,8 +5,8 @@ import * as actions from "@/store/actions/movie"
 const ViewAllMovies = () => {
   const dispatch = useAppDispatch()
   const loadData = async () => {
-    const result = await dispatch(actions.getMovies())
-    // console.log(result)
+    const result = await dispatch(actions.getMovies({}))
+    console.log(result)
   }
 
   useEffect(() => {
