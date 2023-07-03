@@ -28,5 +28,6 @@ export const clearSession = () => {
 
 export const isAuthenticated = () => {
   const session = getSession()
-  return session !== undefined && session.access_token !== undefined && session.refresh_token !== undefined
+  // return session !== undefined && session.access_token !== undefined && session.refresh_token !== undefined
+  return false
 }

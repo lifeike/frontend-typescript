@@ -18,7 +18,17 @@ const service = axios.create({
 // request interceptor
 service.interceptors.request.use(
   async (config: InternalAxiosRequestConfig) => {
-    return config
+    let expired = null
+    if (session.isAuthenticated()) {
+      config.headers.Authorization = session.getSession()?.access_token
+      let exp_time = jwtDecode<JwtPayload>(session.getSession()?.access_token).exp
+      let now = Math.floor(Date.now() / 1000)
+      // sole.log(exp_time)
+      // console.log(now)
+      // console.log(exp_time - now)
+      if (exp_time) expired = exp_time - now < 10
+    }
+    if (!expired) return config
 
     //if expired, get new access token, then request again
     await axios
