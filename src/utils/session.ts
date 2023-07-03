@@ -6,16 +6,10 @@ export const getSession = (): SessionType => {
     try {
       return JSON.parse(sessionJson)
     } catch (err) {
-      return {
-        access_token: "",
-        refresh_token: "",
-      }
+      return { access_token: "", refresh_token: "" }
     }
   }
-  return {
-    access_token: "",
-    refresh_token: "",
-  }
+  return { access_token: "", refresh_token: "" }
 }
 
 export const setSession = (session: { accessToken: string; refreshToken: string }) => {
