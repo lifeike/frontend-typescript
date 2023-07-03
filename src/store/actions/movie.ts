@@ -1,6 +1,6 @@
 import * as api from "@/api/movie"
 import to from "await-to-js"
-import { AppDispatch } from ".."
+import { AppDispatch, RootState } from ".."
 
 export function getMovies(data: any) {
   return async (dispatch: AppDispatch, {}) => {
