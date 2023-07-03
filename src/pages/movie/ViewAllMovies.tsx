@@ -7,10 +7,13 @@ const ViewAllMovies = () => {
   // The `state` arg is correctly typed as `RootState` already
   const count = useAppSelector((state) => state.counter.value)
   const dispatch = useAppDispatch()
-
-  useEffect(() => {
+  const loadData = async () => {
     const result = dispatch(actions.getMovies())
     console.log(result)
+  }
+
+  useEffect(() => {
+    loadData()
   }, [])
 
   return (
