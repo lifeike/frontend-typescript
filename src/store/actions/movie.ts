@@ -6,6 +6,7 @@ import * as loading from "../reducers/loading"
 export const getMovies = createAsyncThunk("", async (data, thunkAPI) => {
   thunkAPI.dispatch(loading.turnOn())
   const response = await api.getMovie(data)
+  console.log(response)
   thunkAPI.dispatch(loading.turnOff())
   return response
 })
