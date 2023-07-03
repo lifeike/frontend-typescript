@@ -9,7 +9,8 @@ const ViewAllMovies = () => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(actions.getMovies)
+    const result = dispatch(actions.getMovies())
+    console.log(result)
   }, [])
 
   return (
