@@ -7,7 +7,6 @@ import Button from "@mui/material/Button"
 export default function SimpleBackdrop() {
   // The `state` arg is correctly typed as `RootState` already
   const loading = useAppSelector((state) => state.loading.value)
-  console.log(loading)
 
   return (
     <div>

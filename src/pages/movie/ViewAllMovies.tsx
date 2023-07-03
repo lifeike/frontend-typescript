@@ -6,7 +6,7 @@ const ViewAllMovies = () => {
   const dispatch = useAppDispatch()
   const loadData = async () => {
     const result = await dispatch(actions.getMovies())
-    console.log(result)
+    // console.log(result)
   }
 
   useEffect(() => {
