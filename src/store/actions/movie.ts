@@ -1,9 +1,9 @@
 import * as api from "@/api/movie"
 import to from "await-to-js"
-import { AppDispatch, RootState } from ".."
+import { AppDispatch } from ".."
 
 export function getMovies(data: any) {
-  return async (dispatch: AppDispatch, {}) => {
+  return async (dispatch: AppDispatch) => {
     dispatch({ type: "loading/turnOn" })
     let [err, response] = await to(api.getMovie(data))
     if (err) {
