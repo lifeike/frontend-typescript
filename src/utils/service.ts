@@ -1,19 +1,13 @@
 import axios from "axios"
 import {
-  AxiosError,
-  AxiosInstance,
   // AxiosRequestConfig, // Change to InternalAxiosRequestConfig
   InternalAxiosRequestConfig,
-  AxiosResponse,
 } from "axios"
 import jwtDecode, { JwtPayload } from "jwt-decode"
-import moment from "moment"
-
 import { baseURL } from "./URL"
 import * as session from "@/utils/session"
 import store from "@/store"
 import toast from "react-hot-toast"
-import { SessionType } from "@/types/common"
 
 // create an axios instance
 const service = axios.create({
