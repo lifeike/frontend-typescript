@@ -1,13 +1,21 @@
-export const getSession = (): { access_token: string } | undefined => {
+import { SessionType } from "@/types/common"
+
+export const getSession = (): SessionType => {
   let sessionJson = localStorage.getItem("session")
   if (sessionJson) {
     try {
       return JSON.parse(sessionJson)
     } catch (err) {
-      return
+      return {
+        access_token: "",
+        refresh_token: "",
+      }
     }
   }
-  return
+  return {
+    access_token: "",
+    refresh_token: "",
+  }
 }
 
 export const setSession = (session: { accessToken: string; refreshToken: string }) => {
@@ -20,5 +28,5 @@ export const clearSession = () => {
 
 export const isAuthenticated = () => {
   const session = getSession()
-  return session != "" && session !== undefined && session.access_token !== undefined && session.refresh_token !== undefined
+  return session !== undefined && session.access_token !== undefined && session.refresh_token !== undefined
 }

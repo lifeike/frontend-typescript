@@ -6,13 +6,14 @@ import {
   InternalAxiosRequestConfig,
   AxiosResponse,
 } from "axios"
-import jwt_decode from "jwt-decode"
+import jwtDecode, { JwtPayload } from "jwt-decode"
 import moment from "moment"
 
 import { baseURL } from "./URL"
 import * as session from "@/utils/session"
 import store from "@/store"
 import toast from "react-hot-toast"
+import { SessionType } from "@/types/common"
 
 // create an axios instance
 const service = axios.create({
@@ -25,20 +26,19 @@ service.interceptors.request.use(
   async (config: InternalAxiosRequestConfig) => {
     let expired = null
     if (session.isAuthenticated()) {
-      let headers = { Authorization: `${session.getSession()?.access_token}` }
-      config.headers = { ...headers, ...config.headers }
-      let exp_time = jwt_decode(session.getSession().access_token).exp
+      config.headers.Authorization = session.getSession()?.access_token
+      let exp_time = jwtDecode<JwtPayload>(session.getSession()?.access_token).exp
       let now = Math.floor(Date.now() / 1000)
       // console.log(exp_time)
       // console.log(now)
       // console.log(exp_time - now)
-      expired = exp_time - now < 10
+      if (exp_time) expired = exp_time - now < 10
     }
     if (!expired) return config
 
     //if expired, get new access token, then request again
     await axios
-      .post(`${baseURL}/auth/refresh-token`, { refresh_token: session.getSession().refresh_token })
+      .post(`${baseURL}/auth/refresh-token`, { refresh_token: session.getSession()?.refresh_token })
       .then(async (res) => {
         session.setSession(res.data)
         store.dispatch({ type: "user/setUser", payload: res.data })
