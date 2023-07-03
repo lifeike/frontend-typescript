@@ -10,7 +10,7 @@ export default defineConfig({
     port: 5173,
     proxy: {
       "/api": {
-        target: "https://api.apis.guru/v2/list.json",
+        target: "https://api.publicapis.org/entries",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
