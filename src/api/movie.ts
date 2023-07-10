@@ -2,7 +2,7 @@ import axios from "@/utils/service"
 
 export function getMovie(data: any) {
   return axios({
-    url: `/entries`,
+    url: `/movies`,
     method: "get",
     params: data,
   })
